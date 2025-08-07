@@ -18,11 +18,11 @@ public class Range<T> where T : IComparable<T>
         return value.CompareTo(Min) >= 0 && value.CompareTo(Max) <= 0;
     }
 
-    public void Length()
+    public T Length<T>()
     {
         try
         {
-            return Max - Min;
+            return Max<T> - Min<T>;
         }
         catch
         {
@@ -30,6 +30,17 @@ public class Range<T> where T : IComparable<T>
         }
     }
 }
+static void Main()
+    {
+        var intRange = new Range<int>(10, 20);
+        Console.WriteLine(intRange.IsInRange(15));  
+        Console.WriteLine(intRange.IsInRange(25));  
+        Console.WriteLine("Length: " + intRange.Length());  
+
+        var doubleRange = new Range<double>(5.5, 10.0);
+        Console.WriteLine(doubleRange.IsInRange(7.1));  
+        Console.WriteLine("Length: " + doubleRange.Length());
+    }
 
 // Q 2
 public class ListReverse
@@ -44,7 +55,6 @@ public class ListReverse
 
         while (left < right)
         {
-            // Swap elements at left and right indexes
             T temp = list[left];
             list[left] = list[right];
             list[right] = temp;
@@ -54,3 +64,18 @@ public class ListReverse
         }
     }
 }
+static void Main()
+    {
+        ArrayList List1 = new ArrayList() { 1, 2, 3, 4, 5 };
+        
+        Console.WriteLine("Original List:");
+        foreach (var item in List1)
+            Console.Write(item + " "); 
+        
+        ListReverse.ReverseInPlace(List1);
+
+        Console.WriteLine("\nReversed List:");
+        foreach (var item in List1)
+            Console.Write(item + " ");  1
+    }
+
