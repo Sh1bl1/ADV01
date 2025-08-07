@@ -110,3 +110,55 @@ static void Main()
           Console.Write(num + " ");
         } 
     }
+
+// Q 4 
+public class List1<T>
+{
+    private T[] items;
+    private int count;
+
+    public int Capacity { get; set;}
+    public int Count  { get; set;}
+
+    public FixedSizeList(int capacity)
+    {
+        if (capacity <= 0)
+            throw new ArgumentException("Capacity must be greater than zero.");
+
+        Capacity = capacity;
+        items = new T[capacity];
+        count = 0;
+    }
+
+    public void Add(T item)
+    {
+        if (count >= Capacity)
+            throw new InvalidOperationException(" The list is full.");
+
+        items[count] = item;
+        count++;
+    }
+
+    public T Get(int index)
+    {
+        if (index < 0 || index >= count)
+            throw new IndexOutOfRangeException("Index is out of range.");
+
+        return items[index];
+    }
+}
+static void Main()
+    {
+        List1<string> names = new List1<string>(3);
+
+        try
+        {
+            names.Add("Alice");
+            names.Add("Bob");
+            names.Add("Charlie");
+
+            Console.WriteLine("List contents:");
+            for (int i = 0; i < names.Count; i++)
+            {
+                Console.WriteLine($"Index {i}: {names.Get(i)}");
+            }
