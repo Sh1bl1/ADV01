@@ -1,0 +1,166 @@
+// SWAP Example
+
+static void Main
+// Generics :
+// C# Feature 2005 # 2.0
+// Before 2005 Class Object
+// SWAP
+int A = 4, B = 5;
+Console WriteLine(value: $"A: {A}");
+Console WriteLine(value: $"B: {B}");
+Console.WriteLine(value: "*** After SWAP ***");
+Helper. SWAP(ref A, ref B); // Passing By ref Console WriteLine(value: $"A: {A}");
+Console WriteLine(value: $"B: {B}");
+
+internal struct Point
+{
+   public int X { get; set; }
+
+   public int Y { get; set; }
+
+   public Point(int X, int Y)
+    {
+     this.X = X;
+     this.Y = Y;
+    }
+    public override string ToString()
+    {
+       return $"({X}, {Y})";
+    }
+}
+
+internal static class Helper
+   {
+    public static void SWAP(ref int X, ref int Y)
+   {
+    int Temp = X;
+    X = Y;
+    Y = Temp;
+    }
+    public static void SWAP(ref double X, ref double Y)
+    {
+     double Temp = X;
+     X = Y;
+     Y = Temp;
+    }
+  public static void SWAP(ref Point X, ref Point Y)
+     {
+      Point Temp = X;
+      X = Y
+      Y = Temp;
+     }
+}
+internal static class Helper
+   {
+      // Generic SWAP Method
+
+      public static void SWAP<T>(ref T X, ref T Y)
+     {
+       T Temp = X;
+       X = Y;
+       Y = Temp;
+     }
+  }
+
+// Generic Class
+
+   internal static class Helper/<T>/
+   // Generic Linear Search Method
+
+   public static int LinearSearch<T>(T|] Arr, T Value)
+   {
+    if (Arr?. Length > 0)
+     {
+      for (int i = 0; i < Arr. Length; i++)
+       {
+        if (Arr[i]. Equals(Value)) 
+         {
+          return i;
+         }
+        return -1;
+      }
+    }
+}
+
+
+Employee E01 = new Employee () { Id = 1, Name = "Ahmed", Salary = 12000, Age = 31 };
+Employee E02 = new Employee () { Id = 2, Name = "Ali", Salary = 11000, Age = 34 };
+Employee E03 = new Employee () { Id = 3, Name = "Omar", Salary = 13000, Age = 32}
+Employee E04 = new Employee()  { Id = 4, Name = "Mona", Salary = 19000, Age = 29 };
+Employeel employees = { E01, E03, E02, E04 };
+int Index = Helper LinearSearch(employees, E03);
+Console. WriteLine(value: $"Index: (Index}");
+
+if(E01. Equals(E02))
+Console. WriteLine("E01 == E02");
+
+// Equality in Class or Struct
+// Equals
+// 'Class' Has Equals Function Which Inherited From Object Class -> Compare Reference ==
+// 'Struct' Has Equals Function Which Inherited From Object Class -> Compare Data
+// NOTE: Struct Don't Have Implementation For The = Operator
+
+Employee E01 = new Employee () { Id = 1, Name = "Ahmed", Salary = 12000, Age = 31 };
+Employee E02 = new Employee () { Id = 2, Name = "Ali", Salary = 11000, Age = 34 };
+Employee E03 = new Employee () { Id = 3, Name = "Omar", Salary = 13000, Age = 32}
+Employee E04 = new Employee()  { Id = 4, Name = "Mona", Salary = 19000, Age = 29 };
+Employeel employees = { E01, E03, E02, E04 };
+Console WriteLine($"E01: {E01.GetHashCode()}");
+Console.WriteLine($"E02: {E02.GetHashCode)}");
+if (E01. Equals(E02))
+Console. WriteLine("E01 == E02!");
+else
+Console.WriteLine("E01 != E02!");
+
+//if (E01 == E02)
+//Console .WriteLine(value: "E01 = E02!");
+//else
+//Console .WriteLine(“E01 != E02!”) ;
+
+
+// Compare to 
+public int CompareTo(object? obj)
+  // 2. as Casting Operator
+ Point P = obj as Point;
+ if (P is not null)
+   {
+    if (X = P.X) return Y. CompareTo(P.Y);
+    return X. CompareTo(P.X);
+   }
+ return 1;
+ }
+
+//Built -in Interface Generic IEqualityComparer
+
+Employee E01 = new Employee () { Id = 1, Name = "Ahmed", Salary = 12000, Age = 31 };
+Employee E02 = new Employee () { Id = 2, Name = "Ali", Salary = 11000, Age = 34 };
+Employee E03 = new Employee () { Id = 3, Name = "Omar", Salary = 13000, Age = 32}
+Employee E04 = new Employee()  { Id = 4, Name = "Mona", Salary = 19000, Age = 29 };
+Employeel employees = { E01, E03, E02, E04 };
+int Index = Helper.LinearSearchemployees, new Employee() {Id = 2,Name = "Ali", Salary = 11000, Age = 34 };
+Console WriteLine( $"Index: {Index}");
+
+class EmployeeEqualityComparerName : IEqualityComparer<Employee>
+  {
+    public bool Equals(Employee? x, Employee? y)
+    return x. Equals (y);
+ public int GetHashCode([DisallowNull] Employee obj)
+   {
+    throw new NotImplementedException();
+   }
+ }
+
+
+internal static class Helper<T01> where T01 : class, Comparable, ICloneable, IComparer, new()
+
+// Generic Constrants:
+// 1. Primary Constraints [0 : 1]
+// 1.1. class
+// 1.1. struct
+// 1.1. special type point
+// 1.1. enum
+// 1.1. notnull
+// 2. Secondary Constraints [O: M]
+// T Implement Interface
+// 3. Constructor Constraints
+// T : Must Be Type Which Implement The ICompareable Interface
