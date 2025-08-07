@@ -1,0 +1,29 @@
+public class BananaRipenessRange<T> where T : IComparable<T>
+{
+    public T MinRipeness { get; set }
+    public T MaxRipeness { get; set }
+
+    public BananaRipenessRange(T minRipeness, T maxRipeness)
+    {
+        if (minRipeness.CompareTo(maxRipeness) > 0)
+            throw new ArgumentException("Minimum ripeness cannot be greater than maximum ripeness.");
+
+        MinRipeness = minRipeness;
+        MaxRipeness = maxRipeness;
+    }
+
+    public bool IsPerfectBanana(T ripeness)
+    {
+        return ripeness.CompareTo(MinRipeness) >= 0 && ripeness.CompareTo(MaxRipeness) <= 0;
+    }
+}
+static void Main()
+    {
+        var bananaRange = new BananaRipenessRange<float>(3.5f, 6.5f);
+        float banana1 = 4.0f;
+        float banana2 = 7.0f;
+
+        Console.WriteLine($"Banana 1 ripeness {banana1}: " + bananaRange.IsPerfectBanana(banana1)); 
+        Console.WriteLine($"Banana 2 ripeness {banana2}: " + bananaRange.IsPerfectBanana(banana2)); 
+    }
+}
