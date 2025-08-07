@@ -79,3 +79,34 @@ static void Main()
             Console.Write(item + " ");  1
     }
 
+// Q 3 
+public class EvenNumberFilter
+{
+    public static List<int> GetEvenNumbers(List<int> numbers)
+    {
+        if (numbers == null)
+            throw new ArgumentNullException(nameof(numbers));
+
+        List<int> evenNumbers = new List<int>();
+
+        foreach (int num in numbers)
+        {
+            if (num % 2 == 0)
+                evenNumbers.Add(num);
+        }
+
+        return evenNumbers;
+    }
+}
+static void Main()
+    {
+        List<int> List1 = new List<int> { 1, 2, 3, 4, 5, 6 };
+
+        List<int> evenList = EvenNumberFilter.GetEvenNumbers(List1);
+
+        Console.WriteLine("Even Numbers:");
+       foreach (int num in evenList)
+        {
+          Console.Write(num + " ");
+        } 
+    }
